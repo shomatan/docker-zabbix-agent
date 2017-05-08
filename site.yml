@@ -1,0 +1,11 @@
+---
+- hosts: all
+  roles:
+    - role: shomatan.zabbix-agent
+  vars:
+    zabbix_agent_LogFile: /dev/stdout  
+  tasks:
+    - name: Copy docker-entrypoint
+      template:
+        src: docker-entrypoint.sh.j2
+        dest: /docker-entrypoint.sh
